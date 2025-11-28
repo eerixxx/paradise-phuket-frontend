@@ -35,6 +35,37 @@
   width: 100%;
 }
 
+.animatedList {
+  width: 100%;
+}
+
+.animatedList :global(.scroll-list-container) {
+  width: 100%;
+}
+
+.animatedList :global(.scroll-list) {
+  max-height: 600px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.animatedList :global(.scroll-list > div) {
+  margin-bottom: 0 !important;
+  width: 100%;
+}
+
+.animatedList :global(.item) {
+  margin-bottom: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.animatedListItem {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .tableContainer {
     padding: 0 16px;

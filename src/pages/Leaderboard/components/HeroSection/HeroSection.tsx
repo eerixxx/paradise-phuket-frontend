@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styles from './HeroSection.module.css'
 import arrowIcon from '../../../../assets/arrow-diagonal.svg'
 import BlurText from '../../../../components/BlurText/BlurText'
+import VariableProximity from '../../../../components/VariableProximity/VariableProximity'
 
 interface HeroSectionProps {
   onOpenTelegramModal: () => void
@@ -12,8 +13,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTelegramModal })
     console.log('Animation completed!');
   };
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className={styles.heroSection}>
+    <div className={styles.heroSection} ref={containerRef}>
       <div className={styles.content}>
         <div className={styles.titleSection}>
           <div className={styles.titleRow}>
@@ -39,7 +42,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenTelegramModal })
           <div className={styles.subtitle}>
             <span>Race to win a ticket to </span>
             <span className={styles.boldText}>Phuket 2026</span>
-            <span> and earn your spot in the ultimate strength community</span>
+            <span> </span>
+            <VariableProximity
+              label="and earn your spot in the ultimate strength community"
+              className={styles.variableProximityText}
+              fromFontVariationSettings="'wght' 500"
+              toFontVariationSettings="'wght' 700"
+              containerRef={containerRef}
+              radius={100}
+              falloff="linear"
+            />
           </div>
         </div>
         <button 

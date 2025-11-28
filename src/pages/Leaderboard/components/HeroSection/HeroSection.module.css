@@ -103,6 +103,11 @@
   font-weight: 600;
 }
 
+.variableProximityText {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
 .telegramButton {
   position: relative;
   border: none;

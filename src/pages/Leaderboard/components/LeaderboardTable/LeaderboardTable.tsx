@@ -1,6 +1,7 @@
 import React from 'react'
 import { TableHeader } from './TableHeader/TableHeader'
 import { TableRow } from './TableRow/TableRow'
+import AnimatedList from '../../../../components/AnimatedList/AnimatedList'
 import styles from './LeaderboardTable.module.css'
 
 export const LeaderboardTable: React.FC = () => {
@@ -20,11 +21,18 @@ export const LeaderboardTable: React.FC = () => {
   return (
     <div className={styles.tableContainer}>
       <TableHeader />
-      <div className={styles.tableRows}>
+      <AnimatedList
+        className={styles.animatedList}
+        itemClassName={styles.animatedListItem}
+        showGradients={false}
+        enableArrowNavigation={true}
+        displayScrollbar={true}
+        itemDelay={0.05}
+      >
         {tableData.map((row, index) => (
           <TableRow key={index} {...row} />
         ))}
-      </div>
+      </AnimatedList>
     </div>
   )
 }
