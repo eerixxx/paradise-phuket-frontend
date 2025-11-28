@@ -1,0 +1,124 @@
+.footer {
+  position: relative;
+  min-height: 100px;
+  width: 1346px;
+  overflow: hidden;
+  padding: 0;
+  margin-top: auto;
+}
+
+/* На разрешении 1440px и больше используем отступ слева как в Figma */
+@media (min-width: 1440px) {
+  .footer {
+    margin-left: calc((100% - 1440px) / 2 + 47px);
+  }
+}
+
+/* На меньших экранах делаем адаптивным */
+@media (max-width: 1439px) {
+  .footer {
+    width: 100%;
+    max-width: 1346px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+  }
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.5;
+  padding: 38px 0;
+  width: 936px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* На разрешении 1440px и больше используем отступ слева как в Figma */
+@media (min-width: 1440px) {
+  .footerContent {
+    margin-left: 205px;
+  }
+}
+
+/* На меньших экранах делаем адаптивным */
+@media (max-width: 1439px) {
+  .footerContent {
+    width: 100%;
+    max-width: 936px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 0 16px;
+  }
+
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 30px 0;
+  }
+}
+
+.leftSection {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.copyright {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-white);
+  white-space: pre;
+  letter-spacing: 0.16px;
+}
+
+.link {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-gray-70);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+
+.link:hover {
+  opacity: 0.8;
+}
+
+.rightSection {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.iconWrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+

@@ -1,0 +1,50 @@
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 936px;
+  padding: 0;
+}
+
+/* На разрешении 1440px используем отступ слева как в Figma */
+@media (min-width: 1440px) {
+  .tableContainer {
+    margin-left: 252px;
+  }
+}
+
+/* На экранах меньше 1440px делаем адаптивным */
+@media (max-width: 1439px) {
+  .tableContainer {
+    width: 100%;
+    max-width: 936px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 20px;
+  }
+}
+
+.tableRows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .tableContainer {
+    padding: 0 16px;
+    /* overflow-x: auto; - Убираем скролл, так как теперь скрываем колонки */
+  }
+}
+
+@media (max-width: 480px) {
+  .tableContainer {
+    padding: 20px 12px;
+  }
+}
+

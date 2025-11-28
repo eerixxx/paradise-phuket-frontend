@@ -1,0 +1,198 @@
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 885px;
+  padding: 0;
+  position: relative;
+  z-index: 15; /* Выше Header и ellipse */
+}
+
+/* На разрешении 1440px используем отступ слева как в Figma */
+@media (min-width: 1440px) {
+  .heroSection {
+    margin-left: 277px;
+  }
+}
+
+/* На экранах меньше 1440px делаем адаптивным */
+@media (max-width: 1439px) {
+  .heroSection {
+    width: 100%;
+    max-width: 885px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 20px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 16; /* Выше heroSection */
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 17; /* Выше ellipse и header */
+}
+
+.titleRow {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 18; /* Выше ellipse и header */
+}
+
+.gradientTitle {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500;
+  font-size: clamp(32px, 5vw, 60px);
+  line-height: 0.9;
+  white-space: pre;
+  letter-spacing: -3.6px;
+  position: relative;
+  z-index: 19; /* Выше всех элементов HeroSection */
+}
+
+.gradientTitle span {
+  background: linear-gradient(135deg, #ffff05 0%, #00ff00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blurredTitle {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500;
+  font-size: clamp(32px, 5vw, 60px);
+  line-height: 0.9;
+  color: var(--color-white);
+  white-space: pre;
+  letter-spacing: -3.6px;
+  position: relative;
+  z-index: 19; /* Выше всех элементов HeroSection */
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(16px, 3vw, 24px);
+  color: var(--color-white-80);
+  max-width: 551px;
+  width: 100%;
+  line-height: normal;
+}
+
+.boldText {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.telegramButton {
+  position: relative;
+  border: none;
+  display: flex;
+  gap: 4px;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 22px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  width: 220px;
+  background: linear-gradient(101deg, rgba(40, 40, 40, 0.10) 2.62%, rgba(89, 51, 34, 0.10) 51.44%, rgba(0, 0, 0, 0.10) 96.15%);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.telegramButton::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  padding: 1px;
+  background: linear-gradient(101deg, rgba(40, 40, 40, 0.10) 2.62%, rgba(89, 51, 34, 0.10) 51.44%, rgba(0, 0, 0, 0.10) 96.15%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.telegramButton:hover {
+  opacity: 0.8;
+}
+
+.buttonContent {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  max-width: none;
+}
+
+.buttonText {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 13.97px;
+  color: var(--color-white-90);
+  text-align: center;
+  white-space: pre;
+  letter-spacing: 0.16px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 20px 16px;
+    gap: 30px;
+  }
+
+  .content {
+    gap: 30px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .titleRow {
+    gap: 12px;
+  }
+
+  .gradientTitle,
+  .blurredTitle {
+    font-size: clamp(24px, 8vw, 40px);
+    letter-spacing: -2px;
+  }
+}
+

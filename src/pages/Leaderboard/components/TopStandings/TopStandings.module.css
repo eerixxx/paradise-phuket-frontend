@@ -1,0 +1,43 @@
+.topStandings {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 936px;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+/* На разрешении 1440px используем отступ слева как в Figma */
+@media (min-width: 1440px) {
+  .topStandings {
+    margin-left: 252px;
+  }
+}
+
+/* На экранах меньше 1440px делаем адаптивным */
+@media (max-width: 1439px) {
+  .topStandings {
+    width: 100%;
+    max-width: 936px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 20px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .topStandings {
+    gap: 20px;
+    padding: 30px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topStandings {
+    gap: 16px;
+    padding: 20px 16px;
+  }
+}
+

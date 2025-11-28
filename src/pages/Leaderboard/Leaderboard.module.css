@@ -1,0 +1,46 @@
+.pageWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-black);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.leaderboardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+  padding-top: 160px; /* Space for header elements */
+  padding-bottom: 120px;
+  gap: 60px;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 5; /* Слой 2: Посередине (выше Ellipse, ниже HeaderContent) */
+}
+
+@media (max-width: 768px) {
+  .leaderboardContent {
+    padding-top: calc(200px + 5.625rem); /* Header space + relative gap (90px ≈ 5.625rem) */
+    padding-bottom: 100px;
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 3.75rem; /* 60px в относительных единицах */
+  }
+}
+
+@media (max-width: 480px) {
+  .leaderboardContent {
+    padding-top: calc(180px + 5.625rem);
+    padding-bottom: 80px;
+    padding-left: 12px;
+    padding-right: 12px;
+    gap: 3.75rem;
+  }
+}
+

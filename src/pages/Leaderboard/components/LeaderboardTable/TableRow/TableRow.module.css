@@ -1,0 +1,140 @@
+.row {
+  background: rgba(6, 6, 6, 0.35); /* Фон компонента: #060606 с 35% прозрачностью */
+  border: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  align-items: stretch;
+  justify-content: center;
+  border-radius: 54px;
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Важно: обрезаем градиент по границам */
+}
+
+/* Белая рамка - нижний слой */
+.row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 54px;
+  padding: 1px; /* Толщина рамки */
+  background: rgba(255, 255, 255, 0.12); /* Белый цвет с 12% прозрачностью */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  -webkit-mask-composite: exclude;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Градиентная рамка - верхний слой поверх белой */
+.row::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 54px;
+  padding: 1px; /* Толщина рамки */
+  background: linear-gradient(102deg, rgba(255, 255, 5, 0.4) 0%, rgba(95, 255, 67, 0.01) 100%);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  -webkit-mask-composite: exclude;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: 2; /* Поверх белой рамки */
+  pointer-events: none;
+}
+
+.rowContent {
+  display: grid;
+  /* Согласованная сетка с заголовком */
+  grid-template-columns: 60px 1.5fr 1fr 1.2fr 1.2fr 1fr; 
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  position: relative;
+  z-index: 3; /* Контент поверх всех псевдоэлементов */
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.rankCol {
+  justify-content: center;
+}
+
+.cellText {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-white);
+}
+
+.cellTextGradient {
+  background: linear-gradient(135deg, #ffff05 0%, #00ff00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .rowContent {
+    grid-template-columns: 50px 1fr 100px; /* #, Username, Total Volume */
+    padding: 0 10px;
+  }
+
+  /* Скрываем ненужные колонки */
+  .headcountCol,
+  .volumeBoostyFiCol,
+  .volumeLimitlessCol {
+    display: none;
+  }
+
+  .rankCol {
+    justify-content: center;
+  }
+  
+  .totalVolumeCol {
+    justify-content: flex-end;
+  }
+  
+  .totalVolumeCol .cellTextGradient {
+    text-align: right;
+  }
+}
+
