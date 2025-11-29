@@ -16,12 +16,24 @@
 }
 
 .scroll-list::-webkit-scrollbar-track {
-  background: #060010;
+  background: rgba(1, 4, 9, 0.24);
+  border-radius: 4px;
 }
 
 .scroll-list::-webkit-scrollbar-thumb {
-  background: #271e37;
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.scroll-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Для Firefox */
+.scroll-list {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.12) rgba(1, 4, 9, 0.24);
 }
 
 .no-scrollbar::-webkit-scrollbar {

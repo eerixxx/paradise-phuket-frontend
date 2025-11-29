@@ -1,6 +1,6 @@
 import React from 'react'
 import { StandCard } from './StandCard/StandCard'
-import styles from './TopStandings.module.css'
+import { AnimatedStandCards } from '../../../../components/AnimatedStandCards'
 
 export const TopStandings: React.FC = () => {
   const standings = [
@@ -10,11 +10,15 @@ export const TopStandings: React.FC = () => {
   ]
 
   return (
-    <div className={styles.topStandings}>
+    <AnimatedStandCards
+      blurAmount={3}
+      borderColor="#7eff29"
+      pauseBetweenAnimations={1.5}
+    >
       {standings.map((stand) => (
         <StandCard key={stand.position} {...stand} />
       ))}
-    </div>
+    </AnimatedStandCards>
   )
 }
 

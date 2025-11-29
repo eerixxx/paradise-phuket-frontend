@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ExploreUsModal } from './modals/ExploreUsModal'
 import { QuestionsModal } from './modals/QuestionsModal'
 import styles from './Header.module.css'
@@ -13,11 +13,23 @@ export const Header: React.FC<HeaderProps> = ({ onOpenUserMenu }) => {
   const [isQuestionsOpen, setIsQuestionsOpen] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
   const [currentLang, setCurrentLang] = useState<'EN' | 'JP'>('EN')
+  const [isMobile, setIsMobile] = useState(false)
 
   const languages = [
     { code: 'EN', label: '🇬🇧 EN' },
     { code: 'JP', label: '🇯🇵 JP' }
   ]
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   return (
     <>
@@ -27,7 +39,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenUserMenu }) => {
           <nav className={styles.menu}>
             <div className={styles.mainMenuItem}>
               <div className={styles.gradientText}>
-                <p className={styles.textContent}>Paradise 2026 | Phuket</p>
+                <p className={styles.textContent}>
+                  {isMobile ? 'Paradise' : 'Paradise 2026 | Phuket'}
+                </p>
               </div>
             </div>
             <button 

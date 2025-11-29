@@ -26,7 +26,7 @@
 
 @media (max-width: 768px) {
   .leaderboardContent {
-    padding-top: calc(200px + 5.625rem); /* Header space + relative gap (90px ≈ 5.625rem) */
+    padding-top: 160px; /* Отступ от Header до HeroSection */
     padding-bottom: 100px;
     padding-left: 16px;
     padding-right: 16px;
@@ -36,7 +36,7 @@
 
 @media (max-width: 480px) {
   .leaderboardContent {
-    padding-top: calc(180px + 5.625rem);
+    padding-top: 60px; /* Отступ от Header до HeroSection */
     padding-bottom: 80px;
     padding-left: 12px;
     padding-right: 12px;
